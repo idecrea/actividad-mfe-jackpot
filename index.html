@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="favicon.png">
+    <title>Actividad 7-12 | Jackpot machine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <main class="main">
+        <div class="container">
+            <img class="slot-machine" id="slot-machine" src="assets/img/slot.png" alt="slot machine">
+            <div class="credits">
+                <span class="credits__title">Balance: €</span>
+                <span class="credits__amount" id="credits-amount">10</span>
+                <span>000</span>
+            </div>
+            <button class="btn-new-game text-btn" type="button" id="btn-new-game">New game</button>
+            <button class="btn-spin text-btn" id="btn-spin" type="button">Spin</button>
+            <!-- Btns Block -->
+            <button class="text-btn btn-block block-left btn-disabled" id="btn-block-left" type="button">Hold</button>
+            <button class="text-btn btn-block block-center btn-disabled" id="btn-block-center" type="button">Hold            </button>
+            <button class="text-btn btn-block block-right btn-disabled" id="btn-block-right" type="button">Hold</button>
+            <!-- Red line in case of match -->
+            <div class="red-line" id="red-line"></div>
+            <!-- Reflection -->
+            <div class="reflection"></div>
+            <!-- Symbols -->
+            <div class="symbols">
+                <img class="symbol symbol-left" id="symbol-left" src="assets/img/seven.png" alt="">
+                <img class="symbol symbol-center" id="symbol-center" src="assets/img/seven.png" alt="">
+                <img class="symbol symbol-right" id="symbol-right" src="assets/img/seven.png" alt="">
+            </div>
+            <!-- Effects images -->
+            <img class="hold hold-left" src="assets/img/hold.png" id="hold-left" alt="hold">
+            <img class="hold hold-center" src="assets/img/hold.png" id="hold-center" alt="hold">
+            <img class="hold hold-right" src="assets/img/hold.png" id="hold-right" alt="hold">
+            <img class="free-spin" src="assets/img/free-spin.png" id="free-spin" alt="free spin">
+            <img class="mega-jackpot" src="assets/img/mega-jackpot.png" id="mega-jackpot-img" alt="Mega jackpot">
+        </div>
+    </main>
+    <!-- JS -->
+    <script src="assets/js/index.js"></script>
+</body>
+</html>

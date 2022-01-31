@@ -1,0 +1,329 @@
+body {
+    font-family: "Segoe UI", sans-serif;
+}
+
+button {
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 .2vw .3vw .25vw #171717;
+}
+
+button:active {
+    transform: scale(.97);
+}
+
+img {
+    pointer-events: none;
+}
+
+.main {
+    width: 100%;
+    height: 100vh;
+    max-height: 62rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../img/bg.jpg");
+    background-size: 100%;
+    background-position: center;
+    overflow: hidden;
+}
+
+.container {
+    width: 100vw;
+    height: 45.7vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.text-btn {
+    text-transform: uppercase;
+    font-size: 1.4vw;
+    font-weight: 600;
+}
+
+.slot-machine {
+    width: 40vw;
+    height: auto;
+    filter: drop-shadow(0 1.5vw 1vw rgba(0, 0, 0, 0.8));
+}
+
+.btn-spin {
+    width: 8vw;
+    height: 6vw;
+    position: absolute;
+    border: .5vw groove gold;
+    border-radius: 45%;
+    color: #fff;
+    background-color: #1dd73c;
+    top: 33.5vw;
+    right: 20vw;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.btn-new-game {
+    width: 8vw;
+    height: 6vw;
+    position: absolute;
+    border: .5vw groove gold;
+    border-radius: 45%;
+    color: #fff;
+    background-color: #1dd73c;
+    top: 33.5vw;
+    right: 10vw;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.symbols {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.symbol {
+    position: absolute;
+    width: 9vw;
+    top: 23.8vw;
+}
+
+.symbol-left {
+    left: 34vw;
+}
+
+.symbol-center {
+    left: 45vw;
+    animation-delay: 100ms;
+}
+
+.symbol-right {
+    left: 56.5vw;
+    animation-delay: 150ms;
+}
+
+.credits {
+    position: absolute;
+    width: 12vw;
+    top: 6vw;
+    left: 8vw;
+    font-size: 1.5vw;
+    font-weight: 500;
+    background-image: linear-gradient(0deg, #0e0e0e 45%, #282828 90%);
+    color: #ffffff;
+    padding: 1vw;
+    border-radius: 1vw;
+    border: .5vw groove gold;
+    box-shadow: 0 .2vw .3vw .25vw #171717;
+}
+
+.red-line {
+    display: none;
+    width: 33vw;
+    height: .3vw;
+    position: absolute;
+    top: 28.3vw;
+    background-color: #d90008;
+}
+
+.red-line::before, .red-line::after {
+    position: absolute;
+    content: '';
+    width: 1vw;
+    height: 1vw;
+    top: -.5vw;
+    left: -.5vw;
+    transform: rotate(45deg);
+}
+
+.red-line::before {
+    top: -.4vw;
+    background-image: linear-gradient(225deg, #d90008 50%, transparent 50%);
+}
+
+.red-line::after {
+    left: initial;
+    top: -.4vw;
+    right: -.5vw;
+    background-image: linear-gradient(45deg, #d90008 50%, transparent 50%);
+}
+
+.btn-block {
+    width: 6.5vw;
+    height: 4.5vw;
+    border: .5vw groove gold;
+    border-radius: 45%;
+    position: absolute;
+    bottom: 1.5vw;
+    z-index: 50;
+    background-color: #ffb700;
+    color: #ffffff;
+}
+
+.block-left {
+    left: 36vw;
+}
+
+.block-center {
+    left: 47vw;
+}
+
+.block-right {
+    left: 58vw;
+}
+
+@keyframes animSpinKeyframes {
+
+    0% {
+        transform: translateY(2vw);
+        filter: blur(.5px);
+    }
+    100% {
+        transform: translateY(-2vw);
+        filter: blur(1px);
+    }
+
+}
+
+.anim-spin {
+    animation-name: animSpinKeyframes;
+    animation-duration: 200ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0, 0, 0.47, 1.03);
+    animation-fill-mode: forwards;
+}
+
+@keyframes animMatchKeyframes {
+
+    0% {
+        transform: scale(1.1);
+        filter: brightness(1.5);
+    }
+    100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+
+}
+
+.anim-match {
+    animation-name: animMatchKeyframes;
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+    animation-delay: initial;
+}
+
+@keyframes animHoldKeyframes {
+    0% {
+        filter: drop-shadow(0 0 .8vw #d90008) brightness(1);
+    }
+    100% {
+        filter: drop-shadow(0 0 .2vw #d90008) brightness(1.3);
+    }
+}
+
+.hold {
+    display: none;
+    position: absolute;
+    width: 8.5vw;
+    bottom: 11.2vw;
+    animation-name: animHoldKeyframes;
+    animation-duration: .8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
+
+.hold-left {
+    left: 34.5vw;
+}
+
+.hold-center {
+    left: 45.4vw;
+}
+
+.hold-right {
+    right: 34.8vw;
+}
+
+@keyframes animFreeSpinKeyframes {
+    0% {
+        transform: scale(.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.free-spin {
+    display: none;
+    position: absolute;
+    top: -3vw;
+    animation-name: animFreeSpinKeyframes;
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.mega-jackpot {
+    display: none;
+    position: absolute;
+    top: 1vw;
+    animation-name: animFreeSpinKeyframes;
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.btn-disabled {
+    opacity: .6;
+    filter: saturate(0);
+}
+
+.show {
+    display: block;
+}
+
+@keyframes animPumpSlotMachine {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.03);
+    }
+}
+
+.pump-slot-machine-anim {
+    animation-name: animPumpSlotMachine;
+    animation-duration: 100ms;
+    animation-iteration-count: 2;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
+
+.reflection {
+    position: absolute;
+    width: 33vw;
+    height: 5vw;
+    background-image: linear-gradient(0, #fffaec -15%, transparent 90%);
+    top: 23vw;
+    z-index: 50;
+    opacity: .6;
+    filter: blur(3px);
+    mix-blend-mode: luminosity;
+    border-radius: 30%;
+}
